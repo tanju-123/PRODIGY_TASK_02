@@ -38,3 +38,9 @@ The stopwatch allows users to:
 2. Open `index.html` in a web browser  
 3. Use the buttons to start, pause, reset, or record lap times
 
+
+**Md Tanjil Hussain**  
+_Web Development Intern_  
+**Prodigy Infotech**
+
+---
