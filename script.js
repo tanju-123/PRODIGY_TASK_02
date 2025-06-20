@@ -15,33 +15,37 @@ function stopwatch() {
   if (seconds === 60) {
     seconds = 0;
     minutes++;
-  }
-  if (minutes === 60) {
-    minutes = 0;
-    hours++;
+    if (minutes === 60) {
+      minutes = 0;
+      hours++;
+    }
   }
   updateDisplay();
 }
 
-function startStop() {
+document.getElementById("startPauseBtn").addEventListener("click", function () {
   if (!isRunning) {
     timer = setInterval(stopwatch, 1000);
     isRunning = true;
+    this.innerText = "Pause";
   } else {
     clearInterval(timer);
     isRunning = false;
+    this.innerText = "Start";
   }
-}
+});
 
 function reset() {
   clearInterval(timer);
   [seconds, minutes, hours] = [0, 0, 0];
   updateDisplay();
   document.getElementById("laps").innerHTML = "";
+  document.getElementById("startPauseBtn").innerText = "Start";
   isRunning = false;
 }
 
 function lap() {
+  if (!isRunning) return;
   let laps = document.getElementById("laps");
   let li = document.createElement("li");
   li.innerText = display.innerText;
